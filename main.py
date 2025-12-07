@@ -50,7 +50,7 @@ def main():
     for pair in schedule[selected_group]:
         if pair[0] < current_time and pair[1] > current_time:
             has_light = False
-            return
+            # return
     if has_light:
         before = True
         for pair in schedule[selected_group]:
