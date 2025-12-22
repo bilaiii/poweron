@@ -25,6 +25,9 @@ def main():
     res_json = req.json()
     # print(json.dumps(res_json, ensure_ascii=False, indent=2))
     res_html = res_json["hydra:member"][0]["menuItems"][0]["rawHtml"]
+    if not res_html:
+        print("You will have electricity till rest of the day")
+        return
     res_soup = BeautifulSoup(res_html, 'html.parser')
     res_paragraphs = res_soup.find_all('p')
     for i, p in enumerate(res_paragraphs):
