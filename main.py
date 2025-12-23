@@ -61,19 +61,19 @@ def main():
                 if time > current_time:
                     delta = time - current_time
                     delta = format_timedelta(delta)
-                    print(f"You will not have electricity in {delta} hours")
+                    print(f"PWR: OFF IN {delta}")
                     before = False
                     return
         if before:
-            print("You will have electricity till rest of the day")
+            print("PWR: ON")
     if not has_light:
         for pair in schedule[selected_group]:
             if pair[0] < current_time and pair[1] > current_time:
                 delta = pair[1] - current_time            
                 delta = format_timedelta(delta)
-                print(f"You will have electricity in {delta} hours")
+                print(f"PWR: IN {delta}")
                 return
     if not schedule[selected_group]:
-        print("You will have electricity till rest of the day")
+        print("PWR: ON")
 if __name__ == "__main__":
     main()
